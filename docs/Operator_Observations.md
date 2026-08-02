@@ -116,7 +116,22 @@ too-narrow biography in canon caused active, repeated advice AGAINST claims that
 were true. **This matters here: most of this project's CLAUDE.md is UNKNOWN.**
 Ask rather than infer.
 
-### 1e · Tool boundaries
+### 1e · This repo's git identity (learned here, 2026-08-01)
+
+**GitHub rejects pushes authored with the plain email** ("push declined due to
+email privacy restrictions"). The repo's local `user.email` was
+`jhawkins@triwise.com` while the seed commit had used the noreply form, so the
+first new commit was rejected. Fixed at the source rather than per-commit:
+
+```
+git config user.email "237903452+jhawkins999@users.noreply.github.com"
+git config user.name  "John Hawkins"
+```
+
+If a push is ever rejected this way, amend with `--reset-author` after fixing
+the config. **Author is John Hawkins, no Co-Authored-By trailers.**
+
+### 1f · Tool boundaries
 
 **The browser file-upload tool only accepts files the user has explicitly shared
 with the session**, and clicking a native upload button opens an OS dialog that
