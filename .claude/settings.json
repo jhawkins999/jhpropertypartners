@@ -1,0 +1,70 @@
+{
+  "_comment": "Project-level allowlist for JH Property Partners. Checked into the repo on purpose so it survives and can be copied to sibling projects. GENERIC patterns only. settings.local.json accumulates hyper-specific one-off grants from 'allow once' prompts (exact curl URLs, exact commit messages, whole sed scripts) which almost never match again; the useful ones belong here as patterns instead.",
+
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git --no-pager log *)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git --no-pager diff *)",
+      "Bash(git show *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git remote -v)",
+      "Bash(git bundle *)",
+
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(cat *)",
+      "Bash(sed -n *)",
+      "Bash(date)",
+      "Bash(date *)",
+      "Bash(mkdir -p *)",
+
+      "Bash(curl -s *)",
+      "Bash(curl -sL *)",
+      "Bash(curl -sI *)",
+      "Bash(curl -sLI *)",
+      "Bash(curl -sD *)",
+
+      "Bash(python3 scripts/*)",
+      "Bash(python3 -c *)",
+      "Bash(python3 - *)",
+
+      "Bash(pbcopy)",
+      "Bash(pbpaste)",
+      "Bash(pbpaste *)",
+
+      "WebFetch(domain:jhpropertypartners.com)",
+      "WebSearch",
+
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__tabs_create_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__computer",
+      "mcp__claude-in-chrome__browser_batch",
+      "mcp__claude-in-chrome__find",
+      "mcp__claude-in-chrome__read_page",
+      "mcp__claude-in-chrome__get_page_text",
+      "mcp__claude-in-chrome__form_input",
+      "mcp__claude-in-chrome__read_console_messages",
+      "mcp__claude-in-chrome__read_network_requests",
+      "mcp__claude-in-chrome__list_connected_browsers"
+    ],
+
+    "_deny_note": "Deliberately short. deny BEATS allow, so anything listed here is blocked even when John explicitly asks for it in chat. git push is intentionally NOT denied (settings.local.json already allows it, and denying would silently override that). Only history-destroying commands are listed.",
+    "deny": [
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fd *)",
+      "Bash(git push --force *)"
+    ]
+  }
+}

@@ -1,6 +1,56 @@
 # CLAUDE.md — JH Property Partners
 # Read this file at the start of every session.
 
+## ⛔ TOP 12 — NEVER VIOLATE (read first; detail is in the sections below)
+*Structure and the platform rules are ported from the BizRevGrowth repo
+2026-08-01. **Only the PROCESS layer crossed over. None of BRG's brand or
+content canon is here, and none of it applies.** These are the rules that have
+actually caused harm on a GoHighLevel site.*
+
+1. **VERIFY ON PRODUCTION, IN RAW HTML.** Never the builder canvas, never the
+   rendered DOM, never GHL's own status report. Cloudflare caches ~60s and
+   query strings do NOT bust it. `python3 scripts/audit_site.py` +
+   `python3 scripts/sweep_dashes.py`.
+2. **⛔ NEVER USE GHL'S "ASK AI."** It emitted a retired brand and the wrong
+   legal entity type into a legal page, then reported inserting a block that did
+   not exist. A property of the platform, not of a brand. Close the panel.
+3. **"UNKNOWN" IN THIS FILE MEANS UNKNOWN.** Most of this document is
+   deliberately blank. **Do not fill a section from inference, from the other
+   projects, or from what "usually" works for cash-buyer sites.** Fill it only
+   from what John actually says or what is verifiable on the live site. A
+   confident guess written into canon is worse than a blank.
+4. **NEITHER BIZREVGROWTH NOR TRIWISE CANON GOVERNS THIS PROJECT.** Different
+   business, audience and offer. Process discipline ports; content canon never
+   does. See the SEPARATE section below for the explicit do-not-import list.
+5. **RECORD WHO DECIDED A RULE, AND WHEN.** On BRG a banned-word list grew from
+   inference and was enforced as canon for days until John saw it and cut it to
+   two phrases. If a rule is inferred, mark it INFERRED and get it ruled on.
+6. **DESKTOP AND MOBILE ARE OFTEN SEPARATE COPIES with DIFFERENT WORDS** (not
+   just layout), but **not always**. Check both before AND after every copy
+   edit; assume neither.
+7. **THINGS HIDE IN MERGE TAGS AND SPLIT TAGS.** A page can render a brand name
+   that appears nowhere in the builder, because `{{location.name}}` resolves at
+   publish. Names also hide split across tags (`Sniper<b>Path</b>`). **Search
+   the RENDERED output for the symptom, then trace back to what produced it.**
+8. **RAW GREPS GIVE FALSE NEGATIVES.** HTML stores dashes as `&#8212;` and
+   quotes as entities, so a raw search can report "already fixed" when it is
+   not. Entity-aware checks win. When a check says "already done", ask what
+   encoding the haystack is in.
+9. **SAVE AND PUBLISH ARE DIFFERENT BUTTONS**, and **global sections do NOT
+   auto-attach** to a new page. A page can serve HTTP 200 from an old published
+   version while your edits sit invisible.
+10. **METADATA IS PART OF A COPY CHANGE, NOT A FOLLOW-UP.** Change a headline
+    and its `<title>`, `meta description`, `og:*` and JSON-LD change in the same
+    pass, or the search snippet keeps advertising a page that no longer exists.
+11. **FOR ANY NEW SECTION, PREFER ONE CUSTOM-HTML BLOCK** over many native
+    elements: no desktop/mobile twin, one element instead of dozens, and it
+    cannot leave a half-built section on a live page. **Keep it pure ASCII** —
+    `pbcopy` mangles UTF-8 into GHL's CodeMirror.
+12. **GREP BEFORE YOU FIX; VERIFY THE RENDERED RESULT AFTER YOU PUBLISH.**
+    For anything visual, check computed geometry, not the source: markup can be
+    perfectly valid and still render wrong (an image with `width`/`height`
+    attributes but no CSS `height:auto` renders stretched).
+
 > **⚠️ THIS FILE IS A SKELETON, SEEDED 2026-08-01.** Most of it is marked
 > **UNKNOWN**. That is deliberate. Nothing here was inferred, assumed, or
 > carried over from another project. Fill each section in only from what John
